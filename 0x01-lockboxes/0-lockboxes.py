@@ -7,16 +7,14 @@ def canUnlockAll(boxes):
     """the function that checks if boxes can be opened
       make a list and add all the unique keys we have in the different
       boxes and then check the range"""
-    if len(boxes) == 0 or boxes[0] is None:
-        return True
     lst = boxes[0]
     for key in lst:
         if key in range(1, len(boxes)):
             for i in boxes[key]:
                 if i in range(1, len(boxes)) and i not in lst:
-                    lst.append(i)
+                    index = lst.index(key) + 1
+                    lst.insert(index, i)
     if __name__ == '__main__':
-        lst.sort()
         print(lst)
     if len(lst) == len(boxes) - 1:
         return True
