@@ -8,6 +8,8 @@ def canUnlockAll(boxes):
       make a list and add all the unique keys we have in the different
       boxes and then check the range"""
     lst = boxes[0]
+    if lst is None:
+        return True
     for key in lst:
         if key in range(1, len(boxes)):
             for i in boxes[key]:
