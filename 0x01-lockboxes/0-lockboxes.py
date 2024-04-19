@@ -19,7 +19,7 @@ def canUnlockAll(boxes):
                     lst.insert(index, i)
     if __name__ == '__main__':
         print(lst)
-    if len(lst) == len(boxes) - 1:
+    if len(lst) >= len(boxes) - 1:
         return True
     return False
 
