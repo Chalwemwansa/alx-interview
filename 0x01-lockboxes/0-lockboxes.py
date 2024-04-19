@@ -7,9 +7,10 @@ def canUnlockAll(boxes):
     """the function that checks if boxes can be opened
       make a list and add all the unique keys we have in the different
       boxes and then check the range"""
-    lst = boxes[0]
-    if lst is None:
-        return True
+    lst = []
+    for key in boxes[0]:
+        if key in range(1, len(boxes)):
+            lst.append(key)
     for key in lst:
         if key in range(1, len(boxes)):
             for i in boxes[key]:
