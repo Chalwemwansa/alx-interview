@@ -20,3 +20,6 @@ print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
 
 n = math.inf
 print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+
+n = -2
+print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
