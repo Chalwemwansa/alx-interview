@@ -14,7 +14,7 @@ def minOperations(n):
     min_operations = 0  # number of operations to take
     current_value = 0
     step = 1  # step in incrementing the current_value
-    if (math.isinf(n) or n <= 0):
+    if (math.isinf(n) or n <= 0 or isinstance(n, float)):
         return 0
     while (current_value < n):
         # check if current value divides n and is not 0 or 1
