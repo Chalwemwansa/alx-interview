@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """the module contains code that reads from a file or stdin in general
 then gets valid lines and logs them for printing later"""
 import sys
@@ -70,7 +70,8 @@ signal.signal(signal.SIGINT, sig_handler)
 
 
 def main():
-    """the main method where execution will start from"""
+    """the main method where execution will start from and loops
+    through input"""
     global count
     for line in sys.stdin:
         if match_str(line.strip()):
@@ -80,5 +81,6 @@ def main():
 
 
 if __name__ == "__main__":
-    """run the main method if current module is executed"""
+    """run the main method if current module is executed
+    and not when imported"""
     main()
