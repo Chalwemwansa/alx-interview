@@ -1,11 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """the module contains code that reads from a file or stdin in general
 then gets valid lines and logs them for printing later"""
-import sys
 import re
+import sys
 import signal
-from types import FrameType
 from typing import Dict, Optional
+from types import FrameType
 
 
 # global variables
