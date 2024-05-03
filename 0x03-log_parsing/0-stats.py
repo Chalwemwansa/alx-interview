@@ -36,7 +36,7 @@ def match_str(line):
     #  if the line is a match then get the different fields from the regex
     #  using the grouping method
     if is_match:
-        status_code = int(is_match.group(1))
+        status_code = is_match.group(1)
         file_size = int(is_match.group(2))
         if status_code in status_dict:
             status_dict[status_code] += 1
@@ -57,9 +57,9 @@ def print_stats():
     """function prints the current state of the values in the dictionary
     and the size of the files"""
     global count
-    print(f"File size: {total_file_size}")
+    print("File size: {}".format(total_file_size))
     for key, value in dict(sorted(status_dict.items())).items():
-        print(f"{key}: {value}")
+        print("{}: {}".format(key, value))
     count = 0
 
 
