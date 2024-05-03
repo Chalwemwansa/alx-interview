@@ -4,17 +4,15 @@ then gets valid lines and logs them for printing later"""
 import re
 import sys
 import signal
-from typing import Dict, Optional
-from types import FrameType
 
 
 # global variables
-count: int = 0  # checks if 10 lines have been read, reset if CTR-C
-total_file_size: int = 0
-status_dict: Dict[int, int] = {}  # status and number of lines with status
+count = 0  # checks if 10 lines have been read, reset if CTR-C
+total_file_size = 0
+status_dict = {}  # status and number of lines with status
 
 
-def match_str(line: str) -> bool:
+def match_str(line):
     """function takes as input a string then it is matched against
     a regex  to verify if its the write type, if it is the write type
     a dictionary is returned with key value pairs of the
@@ -38,8 +36,8 @@ def match_str(line: str) -> bool:
     #  if the line is a match then get the different fields from the regex
     #  using the grouping method
     if is_match:
-        status_code: int = int(is_match.group(1))
-        file_size: int = int(is_match.group(2))
+        status_code = int(is_match.group(1))
+        file_size = int(is_match.group(2))
         if status_code in status_dict:
             status_dict[status_code] += 1
         else:
@@ -49,13 +47,13 @@ def match_str(line: str) -> bool:
     return False
 
 
-def sig_handler(sig: signal.Signals, frame: Optional[FrameType]) -> None:
+def sig_handler(sig, frame):
     """the function that handles the control-c signal from the keyboard
     after such a signal is received, the stats are printed to std"""
     print_stats()
 
 
-def print_stats() -> None:
+def print_stats():
     """function prints the current state of the values in the dictionary
     and the size of the files"""
     global count
