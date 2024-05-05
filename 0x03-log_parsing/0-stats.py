@@ -26,7 +26,7 @@ def match_str(line):
         r'^.+ *- *'  # IP address
         r'\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{6}\] '  # Date
         r'"[A-Z]+ .+" '  # Request line
-        r'(\d{3}) '  # Status code
+        r'(.+) '  # Status code
         r'(\d+)$'  # File size
     )
 
@@ -36,12 +36,15 @@ def match_str(line):
     #  if the line is a match then get the different fields from the regex
     #  using the grouping method
     if is_match:
-        status_code = is_match.group(1)
+        try:
+            status_code = int(is_match.group(1))
+            if status_code in status_dict:
+                status_dict[status_code] += 1
+            else:
+                status_dict[status_code] = 1
+        except Exception:
+            pass
         file_size = int(is_match.group(2))
-        if status_code in status_dict:
-            status_dict[status_code] += 1
-        else:
-            status_dict[status_code] = 1
         total_file_size += file_size
         return True
     return False
