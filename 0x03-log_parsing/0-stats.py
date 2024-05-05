@@ -82,3 +82,5 @@ if __name__ == "__main__":
     """run the main method if current module is executed
     and not when imported"""
     main()
+    if count != 0:
+        print_stats()
