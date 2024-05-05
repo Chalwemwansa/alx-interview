@@ -23,7 +23,7 @@ def match_str(line):
 
     #  the pattern to match the line passed into stdin against
     pattern = (
-        r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - '  # IP address
+        r'^.+ *- *'  # IP address
         r'\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{6}\] '  # Date
         r'"[A-Z]+ .+" '  # Request line
         r'(\d{3}) '  # Status code
@@ -82,5 +82,5 @@ if __name__ == "__main__":
     """run the main method if current module is executed
     and not when imported"""
     main()
-    if count != 0:
+    if count != 0 or len(status_dict) == 0:
         print_stats()
