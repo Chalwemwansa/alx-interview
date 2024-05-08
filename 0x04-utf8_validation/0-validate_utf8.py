@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """this module contains the validUTF8 function"""
 
 
