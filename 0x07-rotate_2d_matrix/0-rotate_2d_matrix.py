@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """this module contains afunction  that rotates a matrix
 by 90-degrees clockwise"""
 
